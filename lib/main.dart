@@ -56,11 +56,11 @@ class MyApp extends StatelessWidget {
               UserAccountsDrawerHeader(
                 accountName: Text(
                   'JP Rivera',
-                  style: TextStyle(color: Colors.black, fontFamily: 'Gotham'),
+                  style: TextStyle(color: Colors.white, fontFamily: 'Gotham'),
                 ),
                 accountEmail: Text(
                   'jprivera739@gmail.com',
-                  style: TextStyle(color: Colors.black, fontFamily: 'Gotham'),
+                  style: TextStyle(color: Colors.white, fontFamily: 'Gotham'),
                 ),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -89,6 +89,18 @@ class MyApp extends StatelessWidget {
               ListTile(
                 title: const Text(
                   'SKILLS',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  _scrollController.scrollTo(
+                    index: 2,
+                    duration: Duration(milliseconds: 300),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  'CONTACT',
                   style: TextStyle(color: Colors.white),
                 ),
                 onTap: () {
