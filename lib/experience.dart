@@ -209,6 +209,15 @@ class Experience extends StatelessWidget {
                       height: 266,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              const Color.fromRGBO(34, 24, 49, 1),
+                              Colors.black,
+                            ],
+                            stops: [0.0, 0.30],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
                           border: Border.all(
                             color: const Color.from(
                               alpha: 0.309,
