@@ -4,6 +4,7 @@ import './landing.dart';
 import './projects.dart';
 import './experience.dart';
 import './contact.dart';
+import './footer.dart';
 
 void main() {
   runApp(MyApp());
@@ -128,9 +129,15 @@ class MyApp extends StatelessWidget {
         //body: ListView(children: [Landing(), Projects(), Experience(),]),
         body: ScrollablePositionedList.builder(
           itemScrollController: _scrollController,
-          itemCount: 4,
+          itemCount: 5,
           itemBuilder: (context, index) {
-            return [Landing(), Projects(), Experience(), Contact()][index];
+            return [
+              Landing(),
+              Projects(),
+              Experience(),
+              Contact(),
+              Footer(),
+            ][index];
           },
         ),
       ),
