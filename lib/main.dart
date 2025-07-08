@@ -5,11 +5,13 @@ import './projects.dart';
 import './experience.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final ItemScrollController _scrollController = ItemScrollController();
 
   // This widget is the root of your application.
   @override
@@ -77,8 +79,10 @@ class MyApp extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 onTap: () {
-                  // Update the state of the app.
-                  // ...
+                  _scrollController.scrollTo(
+                    index: 1,
+                    duration: Duration(milliseconds: 300),
+                  );
                 },
               ),
               ListTile(
@@ -87,24 +91,23 @@ class MyApp extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(
-                title: const Text(
-                  'CONTACT',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
+                  _scrollController.scrollTo(
+                    index: 2,
+                    duration: Duration(milliseconds: 300),
+                  );
                 },
               ),
             ],
           ),
         ),
-        body: ListView(children: [Landing(), Projects(), Experience()]),
+        //body: ListView(children: [Landing(), Projects(), Experience(),]),
+        body: ScrollablePositionedList.builder(
+          itemScrollController: _scrollController,
+          itemCount: 3,
+          itemBuilder: (context, index) {
+            return [Landing(), Projects(), Experience()][index];
+          },
+        ),
       ),
     );
   }
