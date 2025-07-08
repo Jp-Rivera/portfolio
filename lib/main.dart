@@ -76,6 +76,18 @@ class MyApp extends StatelessWidget {
               ),
               ListTile(
                 title: const Text(
+                  'ABOUT',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  _scrollController.scrollTo(
+                    index: 0,
+                    duration: Duration(milliseconds: 300),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text(
                   'PROJECTS',
                   style: TextStyle(color: Colors.white),
                 ),
@@ -105,7 +117,7 @@ class MyApp extends StatelessWidget {
                 ),
                 onTap: () {
                   _scrollController.scrollTo(
-                    index: 2,
+                    index: 3,
                     duration: Duration(milliseconds: 300),
                   );
                 },
