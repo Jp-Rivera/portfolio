@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import './landing.dart';
 import './projects.dart';
 import './experience.dart';
@@ -44,7 +45,65 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        endDrawer: Drawer(),
+        endDrawer: Drawer(
+          backgroundColor: Colors.black,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text(
+                  'JP Rivera',
+                  style: TextStyle(color: Colors.black, fontFamily: 'Gotham'),
+                ),
+                accountEmail: Text(
+                  'jprivera739@gmail.com',
+                  style: TextStyle(color: Colors.black, fontFamily: 'Gotham'),
+                ),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.cyan,
+                      Color.fromARGB(222, 168, 85, 247),
+                      Colors.pinkAccent,
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                ),
+              ),
+              ListTile(
+                title: const Text(
+                  'PROJECTS',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  'SKILLS',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  'CONTACT',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+            ],
+          ),
+        ),
         body: ListView(children: [Landing(), Projects(), Experience()]),
       ),
     );
