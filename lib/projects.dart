@@ -1,11 +1,22 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import './components/project_card.dart';
 
 class Projects extends StatelessWidget {
-  const Projects({super.key});
+  final double desktopFontSize;
+  final double mobileFontSize;
+
+  const Projects({
+    super.key,
+    required this.desktopFontSize,
+    required this.mobileFontSize,
+  });
 
   @override
   Widget build(BuildContext context) {
+    double screeWidth = MediaQuery.of(context).size.width;
+
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -22,7 +33,7 @@ class Projects extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'segoebold',
               fontWeight: FontWeight.w800,
-              fontSize: 72,
+              fontSize: screeWidth >= 1000 ? desktopFontSize : mobileFontSize,
               letterSpacing: -5,
               foreground: Paint()
                 ..shader = const LinearGradient(
@@ -40,7 +51,7 @@ class Projects extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'segoebold',
                 fontWeight: FontWeight.w800,
-                fontSize: 72,
+                fontSize: screeWidth >= 1000 ? desktopFontSize : mobileFontSize,
                 letterSpacing: -5,
                 color: Colors.white,
               ),
