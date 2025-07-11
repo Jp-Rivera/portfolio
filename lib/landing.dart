@@ -1,94 +1,63 @@
 import 'package:flutter/material.dart';
 
 class Landing extends StatelessWidget {
-  const Landing({super.key});
+  final double desktopFontSize;
+  final double mobileFontSize;
+
+  const Landing({
+    super.key,
+    required this.desktopFontSize,
+    required this.mobileFontSize,
+  });
 
   @override
   Widget build(BuildContext context) {
+    double screeWidth = MediaQuery.of(context).size.width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
 
       children: [
-        LayoutBuilder(
-          builder: (_, constraints) {
-            if (constraints.maxWidth >= 1000) {
-              return Padding(
-                padding: const EdgeInsets.fromLTRB(0, 90, 0, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'CREATIVE',
-                      style: TextStyle(
-                        fontFamily: 'segoebold',
-                        fontWeight: FontWeight.w800,
-                        fontSize: 96,
-                        letterSpacing: -5,
-                        foreground: Paint()
-                          ..shader = const LinearGradient(
-                            colors: [
-                              Color.fromARGB(222, 34, 211, 238),
-                              Color.fromARGB(222, 168, 85, 247),
-                            ],
-                          ).createShader(Rect.fromLTRB(0, 0, 400.0, 200.0)),
-                      ),
-                    ),
-                    Container(
-                      transform: Matrix4.translationValues(0, -40.0, 0),
-                      child: Text(
-                        'DEVELOPER',
-                        style: TextStyle(
-                          fontFamily: 'segoebold',
-                          fontWeight: FontWeight.w800,
-                          fontSize: 96,
-                          letterSpacing: -5,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 90, 0, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'CREATIVE',
+                style: TextStyle(
+                  fontFamily: 'segoebold',
+                  fontWeight: FontWeight.w800,
+                  fontSize: screeWidth >= 1000
+                      ? desktopFontSize
+                      : mobileFontSize,
+                  letterSpacing: -5,
+                  foreground: Paint()
+                    ..shader = const LinearGradient(
+                      colors: [
+                        Color.fromARGB(222, 34, 211, 238),
+                        Color.fromARGB(222, 168, 85, 247),
+                      ],
+                    ).createShader(Rect.fromLTRB(0, 0, 400.0, 200.0)),
                 ),
-              );
-            } else {
-              return Padding(
-                padding: const EdgeInsets.fromLTRB(0, 90, 0, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'CREATIVE',
-                      style: TextStyle(
-                        fontFamily: 'segoebold',
-                        fontWeight: FontWeight.w800,
-                        fontSize: 60,
-                        letterSpacing: -5,
-                        foreground: Paint()
-                          ..shader = const LinearGradient(
-                            colors: [
-                              Color.fromARGB(222, 34, 211, 238),
-                              Color.fromARGB(222, 168, 85, 247),
-                            ],
-                          ).createShader(Rect.fromLTRB(0, 0, 400.0, 200.0)),
-                      ),
-                    ),
-                    Container(
-                      transform: Matrix4.translationValues(0, -30.0, 0),
-                      child: Text(
-                        'DEVELOPER',
-                        style: TextStyle(
-                          fontFamily: 'segoebold',
-                          fontWeight: FontWeight.w800,
-                          fontSize: 60,
-                          letterSpacing: -5,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
+              ),
+              Container(
+                transform: Matrix4.translationValues(0, -40.0, 0),
+                child: Text(
+                  'DEVELOPER',
+                  style: TextStyle(
+                    fontFamily: 'segoebold',
+                    fontWeight: FontWeight.w800,
+                    fontSize: screeWidth >= 1000
+                        ? desktopFontSize
+                        : mobileFontSize,
+                    letterSpacing: -5,
+                    color: Colors.white,
+                  ),
                 ),
-              );
-            }
-          },
+              ),
+            ],
+          ),
         ),
 
         LayoutBuilder(

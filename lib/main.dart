@@ -132,7 +132,7 @@ class MyApp extends StatelessWidget {
           itemCount: 5,
           itemBuilder: (context, index) {
             return [
-              Landing(),
+              Landing(desktopFontSize: 96, mobileFontSize: 60),
               Projects(desktopFontSize: 72, mobileFontSize: 48),
               Experience(),
               Contact(),
