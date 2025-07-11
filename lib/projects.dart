@@ -46,29 +46,71 @@ class Projects extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
-            child: ProjectCard(
-              title: 'Magnolia Site',
-              descr: 'Concept E-commerce site for the Magnolia company.',
-              rotation: .03,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
-            child: ProjectCard(
-              title: 'Lucio Marketing',
-              descr: 'Concept static site for marketing company.',
-              rotation: -.03,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
-            child: ProjectCard(
-              title: 'KIKI',
-              descr: 'Audio sampling web app',
-              rotation: .03,
-            ),
+          LayoutBuilder(
+            builder: (_, constraints) {
+              if (constraints.maxWidth >= 1000) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+                      child: ProjectCard(
+                        title: 'Magnolia Site',
+                        descr:
+                            'Concept E-commerce site for the Magnolia company.',
+                        rotation: .03,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+                      child: ProjectCard(
+                        title: 'Lucio Marketing',
+                        descr: 'Concept static site for marketing company.',
+                        rotation: -.03,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+                      child: ProjectCard(
+                        title: 'KIKI',
+                        descr: 'Audio sampling web app',
+                        rotation: .03,
+                      ),
+                    ),
+                  ],
+                );
+              } else {
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+                      child: ProjectCard(
+                        title: 'Magnolia Site',
+                        descr:
+                            'Concept E-commerce site for the Magnolia company.',
+                        rotation: .03,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+                      child: ProjectCard(
+                        title: 'Lucio Marketing',
+                        descr: 'Concept static site for marketing company.',
+                        rotation: -.03,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+                      child: ProjectCard(
+                        title: 'KIKI',
+                        descr: 'Audio sampling web app',
+                        rotation: .03,
+                      ),
+                    ),
+                  ],
+                );
+              }
+            },
           ),
         ],
       ),
