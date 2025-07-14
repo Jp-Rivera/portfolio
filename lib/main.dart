@@ -134,7 +134,7 @@ class MyApp extends StatelessWidget {
             return [
               Landing(desktopFontSize: 96, mobileFontSize: 60),
               Projects(desktopFontSize: 72, mobileFontSize: 48),
-              Experience(),
+              Experience(desktopFontSize: 72, mobileFontSize: 48),
               Contact(),
               Footer(),
             ][index];
